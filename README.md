@@ -3,13 +3,13 @@
 ## 引入jar包
 ### gradle
 ```
-compile 'com.eqxiu:eqxiu-api-wrap-boot:{version}'
+compile 'com.seelyn:api-wrap-boot:{version}'
 ```
 ### maven
 ```
 <dependency>
-    <groupId>com.eqxiu</groupId>
-    <artifactId>eqxiu-api-wrap-boot</artifactId>
+    <groupId>com.seelyn</groupId>
+    <artifactId>api-wrap-boot</artifactId>
     <version>{version}</version>
 </dependency>
 ```
