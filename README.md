@@ -15,7 +15,20 @@ compile 'com.seelyn:api-wrap-boot:{version}'
 ```
 ## 使用示例
 
-- @ApiWrap 是注解，可以使用在类和方法上, 注解也可以自定义处理类，只有使用了注解的类和方法才能接收签名验签请求
+- 使用EnableApiWrap注解，开启API Wrap功能 
+```java
+@SpringBootApplication
+@EnableApiWrap
+public class WrapWebApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(WrapWebApplication.class, args);
+    }
+
+}
+```
+
+- 在controller类方法或类上添加@ApiWrap注解, 注解也可以自定义处理类，只有使用了注解的类和方法才能接收签名验签请求
 ```
 @ApiWrap
 @PostMapping(value = "/web")
