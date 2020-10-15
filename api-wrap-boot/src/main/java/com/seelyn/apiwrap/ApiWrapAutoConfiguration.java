@@ -1,6 +1,6 @@
 package com.seelyn.apiwrap;
 
-import com.seelyn.apiwrap.handler.DefaultWrapHandler;
+import com.seelyn.apiwrap.handler.WrapHandlerServer;
 import com.seelyn.apiwrap.store.RedisWrapStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.aop.AopAutoConfiguration;
@@ -58,7 +58,7 @@ public class ApiWrapAutoConfiguration {
     public WrapHandler defaultWrapHandler(@Autowired ApiWrapProperties apiWrapProperties,
                                           @Autowired WrapStore wrapStore) {
 
-        return new DefaultWrapHandler(apiWrapProperties, wrapStore);
+        return new WrapHandlerServer(apiWrapProperties, wrapStore);
     }
 
     /**

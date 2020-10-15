@@ -1,7 +1,7 @@
 package com.seelyn.apiwrap.annotation;
 
 import com.seelyn.apiwrap.WrapHandler;
-import com.seelyn.apiwrap.handler.DefaultWrapHandler;
+import com.seelyn.apiwrap.handler.WrapHandlerServer;
 
 import java.lang.annotation.*;
 
@@ -12,5 +12,5 @@ import java.lang.annotation.*;
 @Retention(value = RetentionPolicy.RUNTIME)
 @Inherited
 public @interface ApiWrap {
-    Class<? extends WrapHandler> value() default DefaultWrapHandler.class;
+    Class<? extends WrapHandler> value() default WrapHandlerServer.class;
 }

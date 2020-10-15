@@ -16,14 +16,14 @@ import java.util.concurrent.TimeUnit;
  *
  * @author linfeng-eqxiu
  */
-public class DefaultWrapHandler implements WrapHandler {
+public class WrapHandlerServer implements WrapHandler {
 
     private final Long legalTime;
     private final String defaultSecret;
     private final WrapStore wrapStore;
 
-    public DefaultWrapHandler(ApiWrapProperties apiWrapProperties,
-                              WrapStore wrapStore) {
+    public WrapHandlerServer(ApiWrapProperties apiWrapProperties,
+                             WrapStore wrapStore) {
 
         this.legalTime = apiWrapProperties.getLegalTime() == null ? 300 : apiWrapProperties.getLegalTime();
         this.defaultSecret = apiWrapProperties.getSecret();
