@@ -66,3 +66,15 @@ private WrapStore wrapStore;
 wrapStore.putSecret(appKey, appSecret);
 
 ```
+
+- 配置文件
+```
+#===========api wrap===========
+api.wrap.enable=false
+api.wrap.secret=testjjhdsa
+api.wrap.legal-time=300
+#===========api wrap redis=============
+spring.redis.host=localhost
+spring.redis.port=6379
+spring.redis.database=0
+```
