@@ -109,14 +109,14 @@ spring.redis.port=6379
 spring.redis.database=0
 ```
 
-## 客户端辅助签名工具
+# 客户端辅助签名工具
 
-### 引入工具包
-#### gradle
+## 引入工具包
+### gradle
 ```
 compile 'com.seelyn:api-wrap-client:{version}'
 ```
-#### maven
+### maven
 ```
 <dependency>
     <groupId>com.seelyn</groupId>
@@ -124,7 +124,7 @@ compile 'com.seelyn:api-wrap-client:{version}'
     <version>{version}</version>
 </dependency>
 ```
-### 使用说明
+## 使用说明
 ```
 DefaultWrapData WrapData = new DefaultWrapData(); 
 WrapClient wrapClient = WrapClient.create(appKey, appSecret);
