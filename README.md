@@ -79,3 +79,25 @@ spring.redis.host=localhost
 spring.redis.port=6379
 spring.redis.database=0
 ```
+
+## 客户端工具
+- 客户端辅助签名工具
+
+### 引入工具包
+#### gradle
+```
+compile 'com.seelyn:api-wrap-client:{version}'
+```
+#### maven
+```
+<dependency>
+    <groupId>com.seelyn</groupId>
+    <artifactId>api-wrap-client</artifactId>
+    <version>{version}</version>
+</dependency>
+```
+### 使用说明
+```java
+WrapClient wrapClient = WrapClient.create(appKey, appSecret);
+WrapRequest<WrapData> request = wrapClient.wrap(Object)
+```
