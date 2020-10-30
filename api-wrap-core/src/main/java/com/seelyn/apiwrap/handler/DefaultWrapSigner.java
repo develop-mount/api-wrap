@@ -8,6 +8,10 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+/**
+ * 默认签名
+ * @author linfeng
+ */
 public class DefaultWrapSigner implements WrapSigner {
 
     private final String appSecret;

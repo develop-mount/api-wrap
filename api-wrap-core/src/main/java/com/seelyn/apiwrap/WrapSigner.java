@@ -1,5 +1,9 @@
 package com.seelyn.apiwrap;
 
+/**
+ * 签名接口
+ * @author linfeng
+ */
 public interface WrapSigner {
     /**
      * 获取签名

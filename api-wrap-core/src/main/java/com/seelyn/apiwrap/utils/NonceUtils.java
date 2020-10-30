@@ -2,6 +2,11 @@ package com.seelyn.apiwrap.utils;
 
 import java.util.Random;
 
+
+/**
+ * 随机数生成工具
+ * @author linfeng
+ */
 public final class NonceUtils {
 
     private NonceUtils() {

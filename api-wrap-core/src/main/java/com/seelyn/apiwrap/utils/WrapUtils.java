@@ -9,6 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Bean转换工具
+ * @author linfeng
+ */
 public final class WrapUtils {
 
     public static final String APP_KEY = "appKey";
