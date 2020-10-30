@@ -6,6 +6,11 @@ import com.seelyn.apiwrap.WrapSigner;
 import com.seelyn.apiwrap.handler.DefaultWrapSigner;
 import com.seelyn.apiwrap.utils.NonceUtils;
 
+/**
+ * 包裹客户端，用于包装需要请求的对象
+ *
+ * @author linfeng
+ */
 public class WrapClient implements WrapOperation {
 
     private String appKey;
