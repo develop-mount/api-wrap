@@ -109,8 +109,7 @@ spring.redis.port=6379
 spring.redis.database=0
 ```
 
-## 客户端工具
-- 客户端辅助签名工具
+## 客户端辅助签名工具
 
 ### 引入工具包
 #### gradle
@@ -127,6 +126,8 @@ compile 'com.seelyn:api-wrap-client:{version}'
 ```
 ### 使用说明
 ```
+DefaultWrapData WrapData = new DefaultWrapData(); 
 WrapClient wrapClient = WrapClient.create(appKey, appSecret);
-WrapRequest<WrapData> request = wrapClient.wrap(Object)
+WrapRequest<DefaultWrapData> request = wrapClient.wrap(WrapData)
+// request 为带签名信息的对象
 ```
