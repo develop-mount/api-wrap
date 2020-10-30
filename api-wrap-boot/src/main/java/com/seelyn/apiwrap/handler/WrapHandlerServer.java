@@ -57,7 +57,7 @@ public class WrapHandlerServer implements WrapHandler {
     @Override
     public void isLegalTime(long timestamp) {
 
-        long diff = timestamp - TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
+        long diff = TimeUnit.MILLISECONDS.toSeconds(timestamp - System.currentTimeMillis());
         if (Math.abs(diff) > legalTime) {
             throw new WrapTimestampException(String.valueOf(diff));
         }
