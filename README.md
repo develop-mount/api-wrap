@@ -58,7 +58,7 @@ public class WrapRequest<T extends WrapData> {
 ```
 
 - 存储appKey和appSecret用于请求验证
-```java
+```
 @Autoware
 private WrapStore wrapStore;
 
@@ -97,7 +97,7 @@ compile 'com.seelyn:api-wrap-client:{version}'
 </dependency>
 ```
 ### 使用说明
-```java
+```
 WrapClient wrapClient = WrapClient.create(appKey, appSecret);
 WrapRequest<WrapData> request = wrapClient.wrap(Object)
 ```
