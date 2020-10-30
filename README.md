@@ -44,7 +44,6 @@ CustomWrapHandler类需要实现WrapHandler接口
 ```
 
 - WrapRequest<DefaultWrapData> 是统一的API验证请求类，其中泛型 DefaultWrapData类需要继承WrapData类
-
 ```java
 public class WrapRequest<T extends WrapData> {
 
@@ -55,6 +54,36 @@ public class WrapRequest<T extends WrapData> {
     private T data;
     //setter getter省略.... 
 }
+```
+
+```java
+import com.seelyn.apiwrap.WrapData;
+import com.seelyn.apiwrap.annotation.SignIgnore;
+
+public class DefaultWrapData extends WrapData {
+
+    // SignIgnore 注解标识标识忽略属性用于签名
+    @SignIgnore
+    private String name;
+    private String url;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+}
+
 ```
 
 - 存储appKey和appSecret用于请求验证
