@@ -15,17 +15,7 @@
         <dependency>
             <groupId>com.seelyn</groupId>
             <artifactId>api-wrap-core</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>3.14.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.17</version>
+            <version>1.0.1</version>
         </dependency>
     </dependencies>
 

@@ -70,8 +70,9 @@ wrapStore.putSecret(appKey, appSecret);
 - 配置文件
 ```
 #===========api wrap===========
-api.wrap.enable=false
+# app密钥，若用户没有自定义，则使用此
 api.wrap.secret=testjjhdsa
+# 单位秒，请求时间和服务器时间不能超过300秒
 api.wrap.legal-time=300
 #===========api wrap redis=============
 spring.redis.host=localhost
