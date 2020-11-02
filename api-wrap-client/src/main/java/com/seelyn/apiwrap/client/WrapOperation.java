@@ -3,6 +3,11 @@ package com.seelyn.apiwrap.client;
 import com.seelyn.apiwrap.WrapData;
 import com.seelyn.apiwrap.WrapRequest;
 
+/**
+ * 包裹操作接口
+ *
+ * @author linfeng
+ */
 public interface WrapOperation {
 
     /**

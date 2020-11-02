@@ -9,6 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Bean转换工具
+ * @author linfeng
+ */
 public final class WrapUtils {
 
     public static final String APP_KEY = "appKey";
@@ -27,7 +31,8 @@ public final class WrapUtils {
     public static <T> Map<String, Object> beanToMap(T bean) {
         Map<String, Object> returnMap = new HashMap<>();
         Class<?> clazz = bean.getClass();
-        for (; clazz != WrapData.class; clazz = clazz.getSuperclass()) {//向上循环  遍历父类
+        //向上循环  遍历父类
+        for (; clazz != WrapData.class; clazz = clazz.getSuperclass()) {
             Field[] fields = clazz.getDeclaredFields();
             for (Field field : fields) {
                 //获取该字段的注解

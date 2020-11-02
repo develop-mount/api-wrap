@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * API签名配置
+ * @author linfeng
  */
 @Configuration
 public class ApiWrapConfiguration {

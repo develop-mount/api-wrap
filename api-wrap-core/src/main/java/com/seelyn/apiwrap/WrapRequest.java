@@ -3,6 +3,7 @@ package com.seelyn.apiwrap;
 /**
  * API包裹请求
  *
+ * @author linfeng
  * @param <T> 继承WrapData {@link WrapData}
  */
 public class WrapRequest<T extends WrapData> {
