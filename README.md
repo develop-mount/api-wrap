@@ -131,3 +131,17 @@ WrapClient wrapClient = WrapClient.create(appKey, appSecret);
 WrapRequest<DefaultWrapData> request = wrapClient.wrap(WrapData)
 // request 为带签名信息的对象
 ```
+
+# 服务端扩展
+## 扩展WrapStore
+
+```java
+@Service
+class CustomWrapStore extends RedisWrapStore {
+    
+}
+```
+这样继承RedisWrapStore类或者实现WrapStore接口，可自定义包裹存储接口。系统自动使用你自定义的WrapStore
+
+
+
