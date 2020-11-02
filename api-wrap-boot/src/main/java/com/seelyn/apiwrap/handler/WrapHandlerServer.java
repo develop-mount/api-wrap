@@ -5,10 +5,6 @@ import com.seelyn.apiwrap.exception.WrapReplayAttackException;
 import com.seelyn.apiwrap.exception.WrapTimestampException;
 import org.springframework.util.StringUtils;
 
-import java.util.Base64;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -41,17 +37,10 @@ public class WrapHandlerServer implements WrapHandler {
     }
 
     @Override
-    public String getSignature(String appKey, Map<String, Object> data) {
+    public String getSignature(String appKey, WrapRequest<WrapData> request) {
 
-        SortedMap<String, Object> sortedMap = new TreeMap<>(data);
-        StringBuilder plainText = new StringBuilder();
-        for (Map.Entry<String, Object> entry : sortedMap.entrySet()) {
-            plainText.append(entry.getKey()).append("=").append(entry.getValue());
-            plainText.append("&");
-        }
-        plainText.deleteCharAt(plainText.length() - 1);
-        Wrap wrap = HMACWrap.newSHA256Wrap(getAppSecret(appKey));
-        return Base64.getEncoder().encodeToString(wrap.sign(plainText.toString()));
+        WrapSigner wrapSigner = new DefaultWrapSigner(getAppSecret(appKey));
+        return wrapSigner.signature(request);
     }
 
     @Override

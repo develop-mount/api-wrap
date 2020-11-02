@@ -21,10 +21,10 @@ public interface WrapHandler {
      * 获取签名
      *
      * @param appKey 应用Key
-     * @param data   待签名数据
+     * @param request   待签名数据
      * @return 签名后字符串
      */
-    String getSignature(String appKey, Map<String, Object> data);
+    String getSignature(String appKey, WrapRequest<WrapData> request);
 
     /**
      * 是否在有效时间只能发起的请求

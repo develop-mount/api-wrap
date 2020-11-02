@@ -2,7 +2,6 @@ package com.seelyn.apiwrap;
 
 import com.seelyn.apiwrap.annotation.ApiWrap;
 import com.seelyn.apiwrap.exception.InvalidWrapSignatureException;
-import com.seelyn.apiwrap.utils.WrapUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -12,10 +11,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.AnnotationUtils;
 
 import java.lang.reflect.Method;
-import java.util.Map;
 import java.util.Objects;
-
-import static com.seelyn.apiwrap.utils.WrapUtils.*;
 
 /**
  * API安全AOP
@@ -80,11 +76,7 @@ public class ApiWrapAspect {
         String signatureParam = request.getSignature();
         wrapHandler.isReplayAttack(appKey, timestamp, nonce, signatureParam);
 
-        Map<String, Object> beanMap = WrapUtils.beanToMap(request.getData());
-        beanMap.put(APP_KEY, appKey);
-        beanMap.put(TIMESTAMP, timestamp);
-        beanMap.put(NONCE, nonce);
-        String signature = wrapHandler.getSignature(appKey, beanMap);
+        String signature = wrapHandler.getSignature(appKey, request);
 
         if (!signatureParam.equals(signature)) {
             throw new InvalidWrapSignatureException();

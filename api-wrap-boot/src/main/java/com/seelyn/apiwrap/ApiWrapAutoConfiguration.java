@@ -5,12 +5,12 @@ import com.seelyn.apiwrap.store.RedisWrapStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.aop.AopAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 /**
@@ -41,6 +41,7 @@ public class ApiWrapAutoConfiguration {
      * @return 签名验签处理服务
      */
     @Bean
+    @ConditionalOnMissingBean
     public WrapStore wrapStore(@Autowired StringRedisTemplate stringRedisTemplate) {
 
         return new RedisWrapStore(stringRedisTemplate);
@@ -54,7 +55,7 @@ public class ApiWrapAutoConfiguration {
      * @return 签名验签处理
      */
     @Bean
-    @Primary
+    @ConditionalOnMissingBean
     public WrapHandler defaultWrapHandler(@Autowired ApiWrapProperties apiWrapProperties,
                                           @Autowired WrapStore wrapStore) {
 
