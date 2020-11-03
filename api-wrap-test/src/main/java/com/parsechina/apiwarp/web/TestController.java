@@ -17,4 +17,10 @@ public class TestController {
         return request;
     }
 
+    @ApiWrap(value = CustomWrapHandler.class)
+    @PostMapping(value = "/web")
+    public WrapRequest<DefaultWrapData> custom(@RequestBody WrapRequest<DefaultWrapData> request) {
+        return request;
+    }
+
 }

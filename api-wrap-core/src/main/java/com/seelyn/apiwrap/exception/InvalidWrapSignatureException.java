@@ -6,4 +6,8 @@ package com.seelyn.apiwrap.exception;
  * @author linfeng
  */
 public class InvalidWrapSignatureException extends WrapException {
+
+    public InvalidWrapSignatureException(String message) {
+        super(message);
+    }
 }

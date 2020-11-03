@@ -143,5 +143,40 @@ class CustomWrapStore extends RedisWrapStore {
 ```
 这样继承RedisWrapStore类或者实现WrapStore接口，可自定义包裹存储接口。系统自动使用你自定义的WrapStore
 
+## 扩展WrapHandler
+### 自定义CustomWrapHandler
+```
+// 自定义WrapHandler, 使用@Component注入到spring中管理
+@Component
+public class CustomWrapHandler implements WrapHandler {
+    @Override
+    public String getAppSecret(String appKey) {
+        return null;
+    }
 
+    @Override
+    public String getSignature(String appKey, WrapRequest<WrapData> request) {
+        return null;
+    }
+
+    @Override
+    public void isLegalTime(long timestamp) {
+
+    }
+
+    @Override
+    public void isReplayAttack(String appKey, long timestamp, int nonce, String signature) {
+
+    }
+}
+```
+### 使用CustomWrapHandler
+```
+// ApiWrap中指定CustomWrapHandler.class类，则系统会根据此类型从Spring中获取对应的实例
+    @ApiWrap(value = CustomWrapHandler.class)
+    @PostMapping(value = "/web")
+    public WrapRequest<DefaultWrapData> custom(@RequestBody WrapRequest<DefaultWrapData> request) {
+        return request;
+    }
+```
 

@@ -79,7 +79,7 @@ public class ApiWrapAspect {
         String signature = wrapHandler.getSignature(appKey, request);
 
         if (!signatureParam.equals(signature)) {
-            throw new InvalidWrapSignatureException();
+            throw new InvalidWrapSignatureException("签名问题");
         }
 
     }

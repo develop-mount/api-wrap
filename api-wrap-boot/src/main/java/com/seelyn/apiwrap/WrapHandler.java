@@ -1,7 +1,5 @@
 package com.seelyn.apiwrap;
 
-import java.util.Map;
-
 /**
  * Api处理
  *
