@@ -98,7 +98,7 @@ public class HMACWrap implements Wrap {
             byte[] actualSignature = mac.doFinal(payload);
 
             if (!MessageDigest.isEqual(signature, actualSignature)) {
-                throw new InvalidWrapSignatureException();
+                throw new InvalidWrapSignatureException("invalid signature exception");
             }
         } catch (InvalidKeyException | NoSuchAlgorithmException e) {
             throw new WrapVerifierException("An unexpected exception occurred when attempting to verify the wrap", e);
