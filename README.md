@@ -1,5 +1,8 @@
 # 服务端安全签名验签
 
+## chang list
+- api-wrap-boot去除redis依赖
+
 ## 引入jar包
 ### gradle
 ```
@@ -103,11 +106,15 @@ wrapStore.putSecret(appKey, appSecret);
 api.wrap.secret=testjjhdsa
 # 单位秒，请求时间和服务器时间不能超过300秒
 api.wrap.legal-time=300
+# 若没有redis配置，wrapStore为本地存储
+# 若配置了redis，则wrapStore为redis存储
 #===========api wrap redis=============
 spring.redis.host=localhost
 spring.redis.port=6379
 spring.redis.database=0
 ```
+- 若没有redis配置，wrapStore为本地存储
+- 若配置了redis，则wrapStore为redis存储
 
 # 客户端辅助签名工具
 

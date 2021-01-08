@@ -4,15 +4,15 @@ import com.seelyn.apiwrap.handler.WrapHandlerServer;
 import com.seelyn.apiwrap.store.LocalWrapStore;
 import com.seelyn.apiwrap.store.RedisWrapStore;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.aop.AopAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 /**
@@ -36,32 +36,6 @@ public class ApiWrapAutoConfiguration {
         return new ApiWrapAspect();
     }
 
-    /**
-     * API包裹存储
-     *
-     * @param apiWrapProperties   配置
-     * @param stringRedisTemplate redis
-     * @return 签名验签处理服务
-     */
-    @Bean
-    @ConditionalOnBean(value = StringRedisTemplate.class)
-    @ConditionalOnMissingBean
-    public WrapStore redisWrapStore(@Autowired ApiWrapProperties apiWrapProperties,
-                                    @Autowired StringRedisTemplate stringRedisTemplate) {
-
-        return new RedisWrapStore(apiWrapProperties, stringRedisTemplate);
-    }
-
-    /**
-     * @param apiWrapProperties 配置
-     * @return
-     */
-    @Bean
-    @ConditionalOnMissingBean(value = {RedisTemplate.class, WrapStore.class})
-    public WrapStore localWrapStore(@Autowired ApiWrapProperties apiWrapProperties) {
-
-        return new LocalWrapStore(apiWrapProperties);
-    }
 
     /**
      * 包裹通过
@@ -71,7 +45,6 @@ public class ApiWrapAutoConfiguration {
      * @return 签名验签处理
      */
     @Bean
-    @ConditionalOnMissingBean(value = {WrapHandler.class})
     public WrapHandler defaultWrapHandler(@Autowired ApiWrapProperties apiWrapProperties,
                                           @Autowired WrapStore wrapStore) {
 
@@ -86,6 +59,40 @@ public class ApiWrapAutoConfiguration {
     @Bean
     public WrapBeanFactoryUtils wrapBeanFactoryUtils() {
         return new WrapBeanFactoryUtils();
+    }
+
+    /**
+     * @param apiWrapProperties 配置
+     * @return
+     */
+    @Bean
+    @ConditionalOnMissingClass(value = {"org.springframework.data.redis.core.StringRedisTemplate"})
+    @ConditionalOnMissingBean
+    public WrapStore localWrapStore(@Autowired ApiWrapProperties apiWrapProperties) {
+
+        return new LocalWrapStore(apiWrapProperties);
+    }
+
+    @Configuration
+    @ConditionalOnClass(value = StringRedisTemplate.class)
+    static class RedisWrapStoreConfiguration {
+
+        /**
+         * API包裹存储
+         *
+         * @param apiWrapProperties   配置
+         * @param stringRedisTemplate redis
+         * @return 签名验签处理服务
+         */
+        @Bean
+        @ConditionalOnMissingBean
+        public WrapStore redisWrapStore(@Autowired ApiWrapProperties apiWrapProperties,
+                                        @Autowired StringRedisTemplate stringRedisTemplate) {
+
+            return new RedisWrapStore(apiWrapProperties, stringRedisTemplate);
+        }
+
+
     }
 
 }
