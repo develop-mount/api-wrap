@@ -1,6 +1,6 @@
 package com.seelyn.apiwrap.store;
 
-import com.seelyn.apiwrap.WrapStore;
+import com.seelyn.apiwrap.ApiWrapProperties;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.util.concurrent.TimeUnit;
@@ -10,14 +10,18 @@ import java.util.concurrent.TimeUnit;
  *
  * @author linfeng-eqxiu
  */
-public class RedisWrapStore implements WrapStore {
+public class RedisWrapStore extends LocalWrapStore {
 
     private static final String PREFIX_SECRET = "com:eqxiu:wrap:secret:";
     private static final String PREFIX_SIGN = "com:eqxiu:wrap:sign:";
     private final StringRedisTemplate stringRedisTemplate;
+    private final Long legalTime;
 
-    public RedisWrapStore(StringRedisTemplate stringRedisTemplate) {
+    public RedisWrapStore(ApiWrapProperties apiWrapProperties,
+                          StringRedisTemplate stringRedisTemplate) {
+        super(apiWrapProperties);
         this.stringRedisTemplate = stringRedisTemplate;
+        this.legalTime = apiWrapProperties.getLegalTime() == null ? 300 : apiWrapProperties.getLegalTime();
     }
 
     @Override
@@ -34,10 +38,10 @@ public class RedisWrapStore implements WrapStore {
 
     @Override
     public void putSign(String appKey, long timestamp, int nonce,
-                        String signature, Long time, TimeUnit unit) {
+                        String signature) {
 
         String key = PREFIX_SIGN + appKey + "_" + timestamp + "_" + nonce;
-        stringRedisTemplate.opsForValue().set(key, signature, time, unit);
+        stringRedisTemplate.opsForValue().set(key, signature, legalTime, TimeUnit.SECONDS);
     }
 
     @Override

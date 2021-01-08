@@ -30,11 +30,8 @@ public interface WrapStore {
      * @param timestamp 时间戳
      * @param nonce     随机数
      * @param signature 签名字符串
-     * @param time      时间
-     * @param unit      时间单位
      */
-    void putSign(String appKey, long timestamp, int nonce,
-                 String signature, Long time, TimeUnit unit);
+    void putSign(String appKey, long timestamp, int nonce, String signature);
 
     /**
      * 取出签名字符串

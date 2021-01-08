@@ -59,7 +59,7 @@ public class WrapHandlerServer implements WrapHandler {
         if (signature.equals(sign)) {
             throw new WrapReplayAttackException(String.format("ReplayAttackException, appKey:%s, timestamp:%s, nonce:%s", appKey, timestamp, nonce));
         } else {
-            wrapStore.putSign(appKey, timestamp, nonce, signature, legalTime, TimeUnit.SECONDS);
+            wrapStore.putSign(appKey, timestamp, nonce, signature);
         }
     }
 }
