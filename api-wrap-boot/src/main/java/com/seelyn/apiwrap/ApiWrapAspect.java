@@ -74,11 +74,10 @@ public class ApiWrapAspect {
         String appKey = request.getAppKey();
         int nonce = request.getNonce();
         String signatureParam = request.getSignature();
+        //验证重放攻击
         wrapHandler.isReplayAttack(appKey, timestamp, nonce, signatureParam);
-
-        String signature = wrapHandler.getSignature(appKey, request);
-
-        if (!signatureParam.equals(signature)) {
+        // 验证签名
+        if (!wrapHandler.verifySignature(appKey, request)) {
             throw new InvalidWrapSignatureException("签名问题");
         }
 

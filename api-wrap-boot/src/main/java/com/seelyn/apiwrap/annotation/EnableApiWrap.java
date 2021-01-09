@@ -1,6 +1,6 @@
 package com.seelyn.apiwrap.annotation;
 
-import com.seelyn.apiwrap.ApiWrapConfiguration;
+import com.seelyn.apiwrap.ApiWrapEnablerConfiguration;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
@@ -11,6 +11,6 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import({ApiWrapConfiguration.class})
+@Import({ApiWrapEnablerConfiguration.class})
 public @interface EnableApiWrap {
 }

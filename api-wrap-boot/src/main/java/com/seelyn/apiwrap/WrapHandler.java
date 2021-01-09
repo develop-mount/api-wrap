@@ -16,13 +16,12 @@ public interface WrapHandler {
     String getAppSecret(String appKey);
 
     /**
-     * 获取签名
-     *
+     * 验证请求是否正确
      * @param appKey 应用Key
-     * @param request   待签名数据
-     * @return 签名后字符串
+     * @param request 请求数据
+     * @return 是否正确
      */
-    String getSignature(String appKey, WrapRequest<WrapData> request);
+    boolean verifySignature(String appKey, WrapRequest<WrapData> request);
 
     /**
      * 是否在有效时间只能发起的请求

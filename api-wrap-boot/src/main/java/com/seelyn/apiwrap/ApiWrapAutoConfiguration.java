@@ -21,7 +21,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
  * @author linfeng-eqxiu
  */
 @Configuration
-@ConditionalOnBean(value = {ApiWrapConfiguration.Marker.class})
+@ConditionalOnBean(value = {ApiWrapEnablerConfiguration.Marker.class})
 @EnableConfigurationProperties({ApiWrapProperties.class})
 @Import({AopAutoConfiguration.class})
 public class ApiWrapAutoConfiguration {

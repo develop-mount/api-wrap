@@ -26,6 +26,10 @@ public class ApiWrapProperties {
      * 签名密钥
      */
     private String secret;
+    /**
+     * 是否签名
+     */
+    private Boolean sign = true;
 
     public Long getLegalTime() {
         return legalTime;
@@ -41,5 +45,13 @@ public class ApiWrapProperties {
 
     public void setSecret(String secret) {
         this.secret = secret;
+    }
+
+    public Boolean getSign() {
+        return sign;
+    }
+
+    public void setSign(Boolean sign) {
+        this.sign = sign;
     }
 }

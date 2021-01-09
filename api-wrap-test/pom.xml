@@ -5,7 +5,7 @@
     <parent>
         <artifactId>api-wrap</artifactId>
         <groupId>com.seelyn</groupId>
-        <version>1.0.7</version>
+        <version>1.0.8</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,12 +16,12 @@
         <dependency>
             <groupId>com.seelyn</groupId>
             <artifactId>api-wrap-boot</artifactId>
-            <version>1.0.7</version>
+            <version>1.0.8</version>
         </dependency>
         <dependency>
             <groupId>com.seelyn</groupId>
             <artifactId>api-wrap-client</artifactId>
-            <version>1.0.7</version>
+            <version>1.0.8</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

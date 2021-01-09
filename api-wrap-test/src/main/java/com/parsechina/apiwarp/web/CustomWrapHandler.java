@@ -5,6 +5,9 @@ import com.seelyn.apiwrap.WrapHandler;
 import com.seelyn.apiwrap.WrapRequest;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author linfeng
+ */
 @Component
 public class CustomWrapHandler implements WrapHandler {
     @Override
@@ -13,8 +16,8 @@ public class CustomWrapHandler implements WrapHandler {
     }
 
     @Override
-    public String getSignature(String appKey, WrapRequest<WrapData> request) {
-        return null;
+    public boolean verifySignature(String appKey, WrapRequest<WrapData> request) {
+        return true;
     }
 
     @Override

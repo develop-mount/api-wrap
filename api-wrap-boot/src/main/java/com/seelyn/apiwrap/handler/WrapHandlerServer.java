@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class WrapHandlerServer implements WrapHandler {
 
+    private final Boolean enableSign;
     private final Long legalTime;
     private final String defaultSecret;
     private final WrapStore wrapStore;
@@ -21,6 +22,7 @@ public class WrapHandlerServer implements WrapHandler {
     public WrapHandlerServer(ApiWrapProperties apiWrapProperties,
                              WrapStore wrapStore) {
 
+        this.enableSign = apiWrapProperties.getSign();
         this.legalTime = apiWrapProperties.getLegalTime() == null ? 300 : apiWrapProperties.getLegalTime();
         this.defaultSecret = apiWrapProperties.getSecret();
         this.wrapStore = wrapStore;
@@ -37,10 +39,15 @@ public class WrapHandlerServer implements WrapHandler {
     }
 
     @Override
-    public String getSignature(String appKey, WrapRequest<WrapData> request) {
-
-        WrapSigner wrapSigner = new DefaultWrapSigner(getAppSecret(appKey));
-        return wrapSigner.signature(request);
+    public boolean verifySignature(String appKey, WrapRequest<WrapData> request) {
+        if (enableSign) {
+            WrapSigner wrapSigner = new DefaultWrapSigner(getAppSecret(appKey));
+            String signature = wrapSigner.signature(request);
+            String signatureParam = request.getSignature();
+            return signatureParam.equals(signature);
+        } else {
+            return true;
+        }
     }
 
     @Override

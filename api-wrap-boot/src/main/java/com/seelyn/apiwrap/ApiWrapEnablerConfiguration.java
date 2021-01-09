@@ -8,15 +8,15 @@ import org.springframework.context.annotation.Configuration;
  * @author linfeng
  */
 @Configuration
-public class ApiWrapConfiguration {
+public class ApiWrapEnablerConfiguration {
 
-    public ApiWrapConfiguration() {
+    public ApiWrapEnablerConfiguration() {
         // Do nothing because
     }
 
     @Bean
-    public ApiWrapConfiguration.Marker enableApiWrapMarker() {
-        return new ApiWrapConfiguration.Marker();
+    public ApiWrapEnablerConfiguration.Marker enableApiWrapMarker() {
+        return new ApiWrapEnablerConfiguration.Marker();
     }
 
     public static class Marker {
