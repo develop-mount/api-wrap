@@ -50,6 +50,9 @@ public class ApiWrapAspect {
         WrapHandler wrapHandler = (WrapHandler) WrapBeanFactoryUtils.getBean(clazz);
 
         Object[] args = joinPoint.getArgs();
+        if (args == null || args.length == 0) {
+            throw new InvalidWrapSignatureException("签名有误");
+        }
         for (Object obj : args) {
             if (obj instanceof WrapRequest) {
                 //noinspection unchecked
