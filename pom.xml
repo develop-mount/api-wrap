@@ -18,7 +18,7 @@
 
     <groupId>com.seelyn</groupId>
     <artifactId>api-wrap</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <name>api-wrap</name>
     <description>api wrap</description>
 
@@ -144,12 +144,19 @@
     <profiles>
         <profile>
             <id>sonatype-oss-release</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <gpg.executable>gpg</gpg.executable>
                 <gpg.passphrase>lyl20160225</gpg.passphrase>
             </properties>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                    </plugin>
                     <!-- Source -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
