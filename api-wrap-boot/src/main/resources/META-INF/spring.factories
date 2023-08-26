@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-        com.seelyn.apiwrap.ApiWrapAutoConfiguration
+        icu.develop.apiwrap.ApiWrapAutoConfiguration

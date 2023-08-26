@@ -1,7 +1,7 @@
 package com.parsechina.apiwarp.web;
 
-import com.seelyn.apiwrap.WrapData;
-import com.seelyn.apiwrap.annotation.SignIgnore;
+import icu.develop.apiwrap.WrapData;
+import icu.develop.apiwrap.annotation.SignIgnore;
 
 public class DefaultWrapData extends WrapData {
 

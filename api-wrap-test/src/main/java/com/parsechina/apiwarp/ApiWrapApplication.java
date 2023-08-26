@@ -1,7 +1,7 @@
 package com.parsechina.apiwarp;
 
-import com.seelyn.apiwrap.WrapStore;
-import com.seelyn.apiwrap.annotation.EnableApiWrap;
+import icu.develop.apiwrap.WrapStore;
+import icu.develop.apiwrap.annotation.EnableApiWrap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

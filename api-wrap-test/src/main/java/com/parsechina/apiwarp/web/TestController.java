@@ -1,7 +1,7 @@
 package com.parsechina.apiwarp.web;
 
-import com.seelyn.apiwrap.WrapRequest;
-import com.seelyn.apiwrap.annotation.ApiWrap;
+import icu.develop.apiwrap.WrapRequest;
+import icu.develop.apiwrap.annotation.ApiWrap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

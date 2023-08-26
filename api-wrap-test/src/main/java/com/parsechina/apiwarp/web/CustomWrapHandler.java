@@ -1,8 +1,8 @@
 package com.parsechina.apiwarp.web;
 
-import com.seelyn.apiwrap.WrapData;
-import com.seelyn.apiwrap.WrapHandler;
-import com.seelyn.apiwrap.WrapRequest;
+import icu.develop.apiwrap.WrapData;
+import icu.develop.apiwrap.WrapHandler;
+import icu.develop.apiwrap.WrapRequest;
 import org.springframework.stereotype.Component;
 
 /**

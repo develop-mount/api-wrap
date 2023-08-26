@@ -6,14 +6,14 @@
 ## 引入jar包
 ### gradle
 ```
-compile 'com.seelyn:api-wrap-boot:{version}'
+compile 'icu.develop:api-wrap-boot:1.1.0'
 ```
 ### maven
 ```
 <dependency>
-    <groupId>com.seelyn</groupId>
+    <groupId>icu.develop</groupId>
     <artifactId>api-wrap-boot</artifactId>
-    <version>{version}</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 ## 使用示例
@@ -60,8 +60,8 @@ public class WrapRequest<T extends WrapData> {
 ```
 
 ```java
-import com.seelyn.apiwrap.WrapData;
-import com.seelyn.apiwrap.annotation.SignIgnore;
+import icu.develop.apiwrap.WrapData;
+import annotation.icu.develop.apiwrap.SignIgnore;
 
 public class DefaultWrapData extends WrapData {
 
@@ -121,14 +121,14 @@ spring.redis.database=0
 ## 引入工具包
 ### gradle
 ```
-compile 'com.seelyn:api-wrap-client:{version}'
+compile 'icu.develop:api-wrap-client:1.1.0'
 ```
 ### maven
 ```
 <dependency>
-    <groupId>com.seelyn</groupId>
+    <groupId>icu.develop</groupId>
     <artifactId>api-wrap-client</artifactId>
-    <version>{version}</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 ## 使用说明
