@@ -5,9 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>api-wrap-core</module>
-        <module>api-wrap-boot</module>
         <module>api-wrap-test</module>
-        <module>api-wrap-client</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

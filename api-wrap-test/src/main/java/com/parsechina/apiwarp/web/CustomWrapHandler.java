@@ -1,8 +1,8 @@
 package com.parsechina.apiwarp.web;
 
-import icu.develop.apiwrap.WrapData;
-import icu.develop.apiwrap.WrapHandler;
-import icu.develop.apiwrap.WrapRequest;
+import icu.develop.api.wrap.WrapHandler;
+import icu.develop.api.wrap.WrapRequest;
+import icu.develop.api.wrap.SecretKey;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,14 +11,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomWrapHandler implements WrapHandler {
     @Override
-    public String getAppSecret(String appKey) {
+    public SecretKey getAppSecret(String appKey) {
         return null;
     }
 
     @Override
-    public boolean verifySignature(String appKey, WrapRequest<WrapData> request) {
+    public <T extends WrapRequest> boolean verifySignature(String appKey, T request) {
         return true;
     }
+
 
     @Override
     public void isLegalTime(long timestamp) {

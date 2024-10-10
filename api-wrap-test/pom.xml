@@ -15,12 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>icu.develop</groupId>
-            <artifactId>api-wrap-boot</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>icu.develop</groupId>
-            <artifactId>api-wrap-client</artifactId>
+            <artifactId>api-wrap-core</artifactId>
             <version>1.1.0</version>
         </dependency>
         <dependency>

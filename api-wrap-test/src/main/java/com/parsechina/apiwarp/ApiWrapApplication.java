@@ -1,7 +1,8 @@
 package com.parsechina.apiwarp;
 
-import icu.develop.apiwrap.WrapStore;
-import icu.develop.apiwrap.annotation.EnableApiWrap;
+import icu.develop.api.wrap.WrapStore;
+import icu.develop.api.wrap.annotation.EnableApiWrap;
+import icu.develop.api.wrap.SecretKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +21,6 @@ public class ApiWrapApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        wrapStore.putSecret("eqxiu", "eqxiu");
+        wrapStore.putSecret("eqxiu", new SecretKey("sdad", "sdad"));
     }
 }
