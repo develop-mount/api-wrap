@@ -4,7 +4,6 @@ package icu.develop.api.wrap.utils;
 import cn.hutool.core.codec.Base64;
 import cn.hutool.crypto.asymmetric.RSA;
 import icu.develop.api.wrap.SecretKey;
-import icu.develop.apiwrap.WrapData;
 import icu.develop.api.wrap.WrapRequest;
 import icu.develop.api.wrap.annotation.SignIgnore;
 
